@@ -101,11 +101,11 @@ public class AccountFragment extends Fragment {
                 String password = etPassword.getText().toString();
 
                 if(checkUser(email, password)){
-                    Toast.makeText(getContext(), "benar", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Berhasil Login", Toast.LENGTH_SHORT).show();
                     Navigation.findNavController(view).navigate(R.id.action_fragmentAccount_to_fragmentProfile);
                 }
                 else{
-                    Toast.makeText(getContext(), "ada kesalahan", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Email atau password salah", Toast.LENGTH_SHORT).show();
                 }
             }
         });

@@ -105,7 +105,7 @@ public class RegisterFragment extends Fragment {
 
                 saveUserData(newUser);
                 Log.d("UserDebug", "User: " + newUser.getName() + newUser.getEmail() + newUser.getPassword());
-                Toast.makeText(getContext(), "benar", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Berhasil Register", Toast.LENGTH_SHORT).show();
                 Navigation.findNavController(view).navigate(R.id.action_fragmentRegister_to_fragmentAccount);
             }
         });

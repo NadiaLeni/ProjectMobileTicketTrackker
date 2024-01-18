@@ -23,9 +23,6 @@ public class MyTicketFragment extends Fragment {
 
         binding = FragmentMyticketBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
-        final TextView textView = binding.textMyticket;
-        myTicketViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
