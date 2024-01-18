@@ -1,12 +1,21 @@
 package com.example.projectmobile3.ui.account;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.projectmobile3.R;
 
@@ -62,5 +71,27 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_profile, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        String userName = getUserName();
+        Log.d("UserDebug", "User: " + userName);
+        TextView tvUserName = view.findViewById(R.id.tvUserName);
+        tvUserName.setText(userName);
+
+        Button btnLogout = view.findViewById(R.id.btnLogout);
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getContext(), "Keluar dari akun", Toast.LENGTH_SHORT).show();
+                Navigation.findNavController(view).navigate(R.id.action_fragmentProfile_to_fragmentAccount);
+            }
+        });
+    }
+
+    private String getUserName(){
+        SharedPreferences sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
+        return sharedPreferences.getString("user_name", "");
     }
 }

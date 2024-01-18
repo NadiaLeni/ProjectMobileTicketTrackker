@@ -7,12 +7,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,8 +18,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.projectmobile3.R;
-import com.example.projectmobile3.RegisterViewModel;
-import com.example.projectmobile3.User;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -85,7 +79,6 @@ public class AccountFragment extends Fragment {
         textViewGoToRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Navigasi ke FragmentRegister
                 Navigation.findNavController(v).navigate(R.id.action_fragmentAccount_to_fragmentRegister);
             }
         });

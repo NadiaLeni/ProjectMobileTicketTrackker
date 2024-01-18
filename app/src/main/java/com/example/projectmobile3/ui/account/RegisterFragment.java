@@ -1,14 +1,12 @@
 package com.example.projectmobile3.ui.account;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import android.util.Log;
@@ -21,7 +19,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.projectmobile3.R;
-import com.example.projectmobile3.RegisterViewModel;
 import com.example.projectmobile3.User;
 
 /**
