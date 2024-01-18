@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.projectmobile3.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_myticket"
+        android:name="com.example.projectmobile3.ui.myticket.MyTicketFragment"
+        android:label="@string/title_myticket"
+        tools:layout="@layout/fragment_myticket" />
+
+    <fragment
+        android:id="@+id/navigation_account"
+        android:name="com.example.projectmobile3.ui.account.AccountFragment"
+        android:label="@string/title_user"
+        tools:layout="@layout/fragment_account">
+
+        <action
+            android:id="@+id/action_fragmentAccount_to_fragmentRegister"
+            app:destination="@id/fragmentRegister" />
+
+        <action
+            android:id="@+id/action_fragmentAccount_to_fragmentProfile"
+            app:destination="@id/fragmentProfile" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentRegister"
+        android:name="com.example.projectmobile3.ui.account.RegisterFragment"
+        android:label="Register"
+        tools:layout="@layout/fragment_register">
+
+        <action
+            android:id="@+id/action_fragmentRegister_to_fragmentAccount"
+            app:destination="@id/navigation_account" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentProfile"
+        android:name="com.example.projectmobile3.ui.account.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile">
+
+    </fragment>
+
+
+</navigation>
