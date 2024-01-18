@@ -84,6 +84,8 @@ public class ProfileFragment extends Fragment {
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Boolean statusLogin = false;
+                saveLoginStatus(statusLogin);
                 Toast.makeText(getContext(), "Keluar dari akun", Toast.LENGTH_SHORT).show();
                 Navigation.findNavController(view).navigate(R.id.action_fragmentProfile_to_fragmentAccount);
             }
@@ -93,5 +95,12 @@ public class ProfileFragment extends Fragment {
     private String getUserName(){
         SharedPreferences sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
         return sharedPreferences.getString("user_name", "");
+    }
+
+    private void saveLoginStatus(boolean isLoggedIn) {
+        SharedPreferences sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("is_logged_in", isLoggedIn);
+        editor.apply();
     }
 }

@@ -94,6 +94,8 @@ public class AccountFragment extends Fragment {
                 String password = etPassword.getText().toString();
 
                 if(checkUser(email, password)){
+                    Boolean statusLogin = true;
+                    saveLoginStatus(statusLogin);
                     Toast.makeText(getContext(), "Berhasil Login", Toast.LENGTH_SHORT).show();
                     Navigation.findNavController(view).navigate(R.id.action_fragmentAccount_to_fragmentProfile);
                 }
@@ -111,5 +113,11 @@ public class AccountFragment extends Fragment {
         return enteredEmail.equals(storedEmail) && enteredPassword.equals(storedPassword);
     }
 
+    private void saveLoginStatus(boolean isLoggedIn) {
+        SharedPreferences sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("is_logged_in", isLoggedIn);
+        editor.apply();
+    }
 
 }

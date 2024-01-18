@@ -114,6 +114,7 @@ public class RegisterFragment extends Fragment {
         editor.putString("user_name", user.getName());
         editor.putString("user_email", user.getEmail());
         editor.putString("user_password", user.getPassword());
+        editor.putBoolean("is_logged_in", false);
         editor.apply();
     }
 
