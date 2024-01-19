@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="@drawable/whitebackground"
+    android:paddingHorizontal="80dp"
+    android:paddingVertical="15dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Labuan Bajo"
+        android:fontFamily="@font/poppins_semibold"
+        android:textColor="@color/dark_blue"
+        android:textSize="20dp"
+        android:textAlignment="center"
+        android:id="@+id/tvbajo1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Person: "
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="@color/dark_blue"
+                android:textSize="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4"
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="@color/dark_blue"
+                android:textSize="16dp"
+                android:id="@+id/tvNumOfPerson"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date: "
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="@color/dark_blue"
+                android:textSize="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12-02-2024"
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="@color/dark_blue"
+                android:textSize="16dp"
+                android:id="@+id/tvDate"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OK"
+        android:id="@+id/btnOK"
+        android:backgroundTint="@color/light_black"/>
+
+</LinearLayout>
