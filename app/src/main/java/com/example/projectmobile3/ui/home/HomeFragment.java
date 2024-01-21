@@ -60,4 +60,13 @@ public class HomeFragment extends Fragment {
         return sharedPreferences.getBoolean("is_logged_in", false);
     }
 
+//    Harga tiket:
+//    Orchid Forest : 50000
+//    Bali zoo: 80000
+//    Candi Prambanan: 50000
+//    Jakarta Bird Land: 51600
+//    Little Venice: 25000
+//    Labuan Bajo: 500000
+
+
 }
