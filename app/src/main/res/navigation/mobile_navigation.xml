@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_account">
+    app:startDestination="@+id/fragmentBookTicket">
 
     <fragment
         android:id="@+id/navigation_home"
@@ -14,7 +14,7 @@
     <fragment
         android:id="@+id/navigation_myticket"
         android:name="com.example.projectmobile3.ui.myticket.MyTicketFragment"
-
+        android:label="@string/title_myticket"
         tools:layout="@layout/fragment_myticket" />
 
     <fragment
@@ -54,6 +54,18 @@
         <action
             android:id="@+id/action_fragmentProfile_to_fragmentAccount"
             app:destination="@id/navigation_account" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentBookTicket"
+        android:name="com.example.projectmobile3.ui.home.BookTicketFragment"
+        android:label="Book Ticket"
+        tools:layout="@layout/fragment_book_ticket" >
+
+        <action
+            android:id="@+id/action_fragmentBookTicket_to_navigation_myticket"
+            app:destination="@id/navigation_myticket" />
 
     </fragment>
 

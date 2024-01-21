@@ -45,10 +45,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Labuan Bajo"
+                    android:text="Orchid Forest Cikole"
                     android:fontFamily="@font/poppins_semibold"
                     android:textColor="@color/dark_blue"
-                    android:textSize="20dp"/>
+                    android:textSize="20dp"
+                    android:id="@+id/tvDestination"/>
 
                 <LinearLayout
                     android:layout_width="wrap_content"

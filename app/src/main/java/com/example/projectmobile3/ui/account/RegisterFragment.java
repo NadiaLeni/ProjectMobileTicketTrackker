@@ -98,12 +98,16 @@ public class RegisterFragment extends Fragment {
                 String emailValue = email.getText().toString();
                 String passwordValue = password.getText().toString();
 
-                User newUser = new User(nameValue, emailValue, passwordValue);
+                if (isEditTextNotEmpty(name) && isEditTextNotEmpty(email) && isEditTextNotEmpty(password)) {
 
-                saveUserData(newUser);
-                Log.d("UserDebug", "User: " + newUser.getName() + newUser.getEmail() + newUser.getPassword());
-                Toast.makeText(getContext(), "Berhasil Register", Toast.LENGTH_SHORT).show();
-                Navigation.findNavController(view).navigate(R.id.action_fragmentRegister_to_fragmentAccount);
+                    User newUser = new User(nameValue, emailValue, passwordValue);
+
+                    saveUserData(newUser);
+                    Toast.makeText(getContext(), "Berhasil Register", Toast.LENGTH_SHORT).show();
+                    Navigation.findNavController(view).navigate(R.id.action_fragmentRegister_to_fragmentAccount);
+                } else {
+                    Toast.makeText(getContext(), "Harap isi semua field", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
@@ -115,8 +119,12 @@ public class RegisterFragment extends Fragment {
         editor.putString("user_email", user.getEmail());
         editor.putString("user_password", user.getPassword());
         editor.putBoolean("is_logged_in", false);
+        editor.putBoolean("is_buyTicket", false);
         editor.apply();
     }
 
+    private boolean isEditTextNotEmpty(EditText editText) {
+        return editText.getText().toString().trim().length() > 0;
+    }
 
 }

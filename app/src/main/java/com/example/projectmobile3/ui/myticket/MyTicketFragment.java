@@ -47,23 +47,50 @@ public class MyTicketFragment extends Fragment {
             myTicketBox.setVisibility(View.GONE);
         }
         else{
-            myTicketBox.setVisibility(View.VISIBLE);
-            myTicketBox.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    showTicketDetailsPopUp();
-                }
-            });
-        }
-    }
+            if(!getAlreadyBuyStatus()){
+                myTicketBox.setVisibility(View.GONE);
+            }
+            else{
+                myTicketBox.setVisibility(View.VISIBLE);
 
-    private boolean getLoginStatus() {
-        SharedPreferences sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
-        return sharedPreferences.getBoolean("is_logged_in", false);
+                TextView tvDestination = view.findViewById(R.id.tvDestination);
+                TextView tvNumOfPerson = view.findViewById(R.id.tvNumOfPerson);
+                TextView tvDate = view.findViewById(R.id.tvDate);
+
+                String numOfPerson = getNumOfPerson();
+                String date = getDate();
+
+                tvNumOfPerson.setText(numOfPerson);
+                tvDate.setText(date);
+
+                myTicketBox.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        showTicketDetailsPopUp();
+                    }
+                });
+            }
+        }
     }
 
     private void showTicketDetailsPopUp(){
         View popUpView = getLayoutInflater().inflate(R.layout.myticket_information, null);
+
+        TextView tvDestination = popUpView.findViewById(R.id.tvDestination);
+        TextView tvName = popUpView.findViewById(R.id.tvName);
+        TextView tvNumOfPerson = popUpView.findViewById(R.id.tvNumOfPerson);
+        TextView tvDate = popUpView.findViewById(R.id.tvDate);
+        TextView tvTotalPrice = popUpView.findViewById(R.id.tvTotalPrice);
+
+        String name = getCustomerName();
+        String numOfPerson = getNumOfPerson();
+        String date = getDate();
+        //untuk total price blm
+
+        tvName.setText(name);
+        tvNumOfPerson.setText(numOfPerson);
+        tvDate.setText(date);
+        //untuk total price blm
 
         Button btnOk = popUpView.findViewById(R.id.btnOK);
 
@@ -79,6 +106,31 @@ public class MyTicketFragment extends Fragment {
         });
 
         alertDialog.show();
-
     }
+
+    private boolean getLoginStatus() {
+        SharedPreferences sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
+        return sharedPreferences.getBoolean("is_logged_in", false);
+    }
+
+    private String getCustomerName(){
+        SharedPreferences sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
+        return sharedPreferences.getString("myticket_name", "");
+    }
+
+    private String getNumOfPerson(){
+        SharedPreferences sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
+        return sharedPreferences.getString("myticket_numOfPerson", "");
+    }
+
+    private String getDate(){
+        SharedPreferences sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
+        return sharedPreferences.getString("myticketuser_date", "");
+    }
+
+    private boolean getAlreadyBuyStatus() {
+        SharedPreferences sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
+        return sharedPreferences.getBoolean("is_buyTicket", false);
+    }
+
 }

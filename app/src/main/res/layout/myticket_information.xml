@@ -5,21 +5,22 @@
     android:orientation="vertical"
     android:gravity="center_horizontal"
     android:background="@drawable/whitebackground"
-    android:paddingHorizontal="80dp"
+    android:paddingHorizontal="20dp"
     android:paddingVertical="15dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Labuan Bajo"
+        android:text="Orchid Forest Cikole"
         android:fontFamily="@font/poppins_semibold"
-        android:textColor="@color/dark_blue"
+        android:textColor="@color/light_black"
         android:textSize="20dp"
         android:textAlignment="center"
-        android:id="@+id/tvbajo1"/>
+        android:id="@+id/tvDestination"
+        android:layout_marginBottom="5dp"/>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
@@ -31,9 +32,33 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Person: "
+                android:text="Customer's Name: "
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="@color/light_black"
+                android:textSize="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nadia Leni"
                 android:fontFamily="@font/poppins_semibold"
                 android:textColor="@color/dark_blue"
+                android:textSize="16dp"
+                android:id="@+id/tvName"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Person: "
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="@color/light_black"
                 android:textSize="16dp"/>
 
             <TextView
@@ -57,7 +82,7 @@
                 android:layout_height="wrap_content"
                 android:text="Date: "
                 android:fontFamily="@font/poppins_semibold"
-                android:textColor="@color/dark_blue"
+                android:textColor="@color/light_black"
                 android:textSize="16dp"/>
 
             <TextView
@@ -71,6 +96,38 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Price: "
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="@color/light_black"
+                android:textSize="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rp "
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="@color/dark_blue"
+                android:textSize="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="50000"
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="@color/dark_blue"
+                android:textSize="16dp"
+                android:id="@+id/tvTotalPrice"/>
+
+        </LinearLayout>
+
     </LinearLayout>
 
     <Button
@@ -78,6 +135,7 @@
         android:layout_height="wrap_content"
         android:text="OK"
         android:id="@+id/btnOK"
-        android:backgroundTint="@color/light_black"/>
+        android:backgroundTint="@color/light_black"
+        android:layout_marginTop="5dp"/>
 
 </LinearLayout>
