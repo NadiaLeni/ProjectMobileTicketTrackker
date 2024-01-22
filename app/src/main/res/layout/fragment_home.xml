@@ -4,11 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".ui.home.HomeFragment"
+    android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="408dp"
-        android:layout_height="731dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="@drawable/gradient1"
         android:orientation="vertical"
         android:padding="30dp">
@@ -53,7 +54,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20dp" />
+            android:layout_height="10dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -69,15 +70,16 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_regular"
-                android:paddingTop="30dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:paddingTop="12dp"
                 android:text="Popular Destination >"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="24dp"
+                android:layout_marginBottom="5dp"/>
 
             <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="150dp">
+                android:layout_height="100dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -86,40 +88,40 @@
 
                     <ImageView
                         android:id="@+id/imgOrchidForest"
-                        android:layout_width="250dp"
-                        android:layout_height="150dp"
+                        android:layout_width="200dp"
+                        android:layout_height="100dp"
                         android:layout_marginRight="15dp"
                         android:src="@drawable/orchid_forest_picture"
                         android:scaleType="centerCrop"/>
 
                     <ImageView
                         android:id="@+id/imgBaliZoo"
-                        android:layout_width="250dp"
-                        android:layout_height="150dp"
+                        android:layout_width="200dp"
+                        android:layout_height="100dp"
                         android:layout_marginRight="15dp"
                         android:src="@drawable/bali_zoo_picture"
                         android:scaleType="centerCrop"/>
 
                     <ImageView
                         android:id="@+id/imgPrambanan"
-                        android:layout_width="250dp"
-                        android:layout_height="150dp"
+                        android:layout_width="200dp"
+                        android:layout_height="100dp"
                         android:layout_marginRight="15dp"
                         android:src="@drawable/candi_prambanan_picture"
                         android:scaleType="centerCrop"/>
 
                     <ImageView
                         android:id="@+id/imgJakartaBirdLand"
-                        android:layout_width="250dp"
-                        android:layout_height="150dp"
+                        android:layout_width="200dp"
+                        android:layout_height="100dp"
                         android:layout_marginRight="15dp"
                         android:src="@drawable/jakarta_bird_land"
                         android:scaleType="centerCrop"/>
 
                     <ImageView
                         android:id="@+id/imgVenice"
-                        android:layout_width="250dp"
-                        android:layout_height="150dp"
+                        android:layout_width="200dp"
+                        android:layout_height="100dp"
                         android:layout_marginRight="15dp"
                         android:src="@drawable/little_venice_picture"
                         android:scaleType="centerCrop"/>
@@ -137,169 +139,32 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="29dp"
-                android:layout_marginTop="30dp"
-                android:fontFamily="@font/poppins_regular"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/poppins_semibold"
                 android:text="Explore >"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="24dp"
+                android:layout_marginBottom="5dp"/>
 
-            <ScrollView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1">
+                android:layout_height="wrap_content">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                    <LinearLayout
+                    <ListView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:id="@+id/orchidForest">
-
-                        <ImageView
-                            android:layout_width="232dp"
-                            android:layout_height="127dp"
-                            android:src="@drawable/orchid_forest_picture"
-                            android:scaleType="centerCrop"/>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Orchid Forest Cikole"
-                            android:fontFamily="@font/poppins_semibold"
-                            android:textColor="@color/white"
-                            android:textSize="20dp"
-                            android:id="@+id/tvOrchidForest"/>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:id="@+id/baliZoo">
-
-                        <ImageView
-                            android:layout_width="232dp"
-                            android:layout_height="127dp"
-                            android:layout_marginTop="20dp"
-                            android:src="@drawable/bali_zoo_picture"
-                            android:scaleType="centerCrop"/>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Bali Zoo"
-                            android:fontFamily="@font/poppins_semibold"
-                            android:textColor="@color/white"
-                            android:textSize="20dp"
-                            android:id="@+id/tvBaliZoo"/>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:id="@+id/candiPrambanan">
-
-                        <ImageView
-                            android:layout_width="232dp"
-                            android:layout_height="127dp"
-                            android:layout_marginTop="20dp"
-                            android:src="@drawable/candi_prambanan_picture"
-                            android:scaleType="centerCrop"/>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Candi Prambanan"
-                            android:fontFamily="@font/poppins_semibold"
-                            android:textColor="@color/white"
-                            android:textSize="20dp"
-                            android:id="@+id/tvPrambanan"/>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:id="@+id/jakartaBirdLand">
-
-                        <ImageView
-                            android:layout_width="232dp"
-                            android:layout_height="127dp"
-                            android:layout_marginTop="20dp"
-                            android:src="@drawable/jakarta_bird_land"
-                            android:scaleType="centerCrop"/>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Jakarta Bird Land"
-                            android:fontFamily="@font/poppins_semibold"
-                            android:textColor="@color/white"
-                            android:textSize="20dp"
-                            android:id="@+id/tvJakartaBirdLand"/>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:id="@+id/littleVienice">
-
-                        <ImageView
-                            android:layout_width="232dp"
-                            android:layout_height="127dp"
-                            android:layout_marginTop="20dp"
-                            android:src="@drawable/little_venice_picture"
-                            android:scaleType="centerCrop"/>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Little Venice"
-                            android:fontFamily="@font/poppins_semibold"
-                            android:textColor="@color/white"
-                            android:textSize="20dp"
-                            android:id="@+id/tvLittleVenice"/>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:id="@+id/labuanBajo">
-
-                        <ImageView
-                            android:layout_width="232dp"
-                            android:layout_height="127dp"
-                            android:layout_marginTop="20dp"
-                            android:src="@drawable/labuan_bajo_picture"
-                            android:scaleType="centerCrop"/>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Labuan Bajo"
-                            android:fontFamily="@font/poppins_semibold"
-                            android:textColor="@color/white"
-                            android:textSize="20dp"
-                            android:id="@+id/tvLabuanBajo"/>
-
-                    </LinearLayout>
+                        android:layout_height="wrap_content"
+                        android:id="@+id/listDestination"
+                        android:scrollbars="vertical"
+                        tools:listitem="@layout/list_view_destination"/>
 
                 </LinearLayout>
 
-            </ScrollView>
+            </LinearLayout>
 
             <Space
                 android:layout_width="match_parent"

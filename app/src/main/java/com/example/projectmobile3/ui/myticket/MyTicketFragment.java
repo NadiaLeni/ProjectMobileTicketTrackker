@@ -57,9 +57,11 @@ public class MyTicketFragment extends Fragment {
                 TextView tvNumOfPerson = view.findViewById(R.id.tvNumOfPerson);
                 TextView tvDate = view.findViewById(R.id.tvDate);
 
+                String destinationName = getDestinationName();
                 String numOfPerson = getNumOfPerson();
                 String date = getDate();
 
+                tvDestination.setText(destinationName);
                 tvNumOfPerson.setText(numOfPerson);
                 tvDate.setText(date);
 
@@ -82,15 +84,17 @@ public class MyTicketFragment extends Fragment {
         TextView tvDate = popUpView.findViewById(R.id.tvDate);
         TextView tvTotalPrice = popUpView.findViewById(R.id.tvTotalPrice);
 
+        String destinationName = getDestinationName();
         String name = getCustomerName();
         String numOfPerson = getNumOfPerson();
         String date = getDate();
-        //untuk total price blm
+        String totalPrice = getTotalPrice();
 
+        tvDestination.setText(destinationName);
         tvName.setText(name);
         tvNumOfPerson.setText(numOfPerson);
         tvDate.setText(date);
-        //untuk total price blm
+        tvTotalPrice.setText(totalPrice);
 
         Button btnOk = popUpView.findViewById(R.id.btnOK);
 
@@ -125,12 +129,22 @@ public class MyTicketFragment extends Fragment {
 
     private String getDate(){
         SharedPreferences sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
-        return sharedPreferences.getString("myticketuser_date", "");
+        return sharedPreferences.getString("myticket_date", "");
     }
 
     private boolean getAlreadyBuyStatus() {
         SharedPreferences sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
         return sharedPreferences.getBoolean("is_buyTicket", false);
+    }
+
+    private String getDestinationName(){
+        SharedPreferences sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
+        return sharedPreferences.getString("destination_name", "");
+    }
+
+    private String getTotalPrice(){
+        SharedPreferences sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
+        return sharedPreferences.getString("myticket_totalprice", "");
     }
 
 }

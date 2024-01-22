@@ -10,6 +10,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +23,8 @@ import android.widget.Toast;
 
 import com.example.projectmobile3.R;
 import com.example.projectmobile3.User;
+
+import org.w3c.dom.Text;
 
 import java.util.Calendar;
 
@@ -80,6 +84,12 @@ public class BookTicketFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        TextView tvDestinationName = view.findViewById(R.id.tvDestinationName);
+        TextView tvDestinationPrice = view.findViewById(R.id.tvDestinationPrice);
+
+        tvDestinationName.setText(getDestinationName());
+        tvDestinationPrice.setText(getDestinationPrice());
+
         EditText etName = view.findViewById(R.id.etName);
         EditText etNumOfPerson = view.findViewById(R.id.etNumOfPerson);
         EditText etDate = view.findViewById(R.id.etDate);
@@ -87,6 +97,7 @@ public class BookTicketFragment extends Fragment {
         etNumOfPerson.setText("1");
 
         TextView tvTotalPrice = view.findViewById(R.id.tvTotalPrice);
+        tvTotalPrice.setText(getDestinationPrice());
 
         etDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,6 +125,23 @@ public class BookTicketFragment extends Fragment {
             }
         });
 
+        etNumOfPerson.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int start, int before, int count) {
+                // Tidak perlu implementasi di sini
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
+                // Memperbarui tvTotalPrice setiap kali teks berubah
+                updateTotalPrice(tvDestinationPrice, etNumOfPerson, tvTotalPrice);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+            }
+        });
+
         Button btnBookNow = view.findViewById(R.id.btnBookNow);
         btnBookNow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,14 +149,13 @@ public class BookTicketFragment extends Fragment {
                 String name = etName.getText().toString();
                 String numOfPerson = etNumOfPerson.getText().toString();
                 String date = etDate.getText().toString();
-
-                //untuk total price blm
+                String totalPrice = tvTotalPrice.getText().toString();
 
                 if (isEditTextNotEmpty(etName) && isEditTextNotEmpty(etNumOfPerson) && isEditTextNotEmpty(etDate)){
-                    saveMyTicketData(name, numOfPerson, date);
+                    saveMyTicketData(name, numOfPerson, date, totalPrice);
 
-                    Toast.makeText(getContext(), "Booking berhasil", Toast.LENGTH_SHORT).show();
-                    Navigation.findNavController(view).navigate(R.id.action_fragmentBookTicket_to_navigation_myticket);
+                    Toast.makeText(getContext(), "Booking berhasil, silahkan cek My Ticket", Toast.LENGTH_SHORT).show();
+                    Navigation.findNavController(view).navigate(R.id.action_fragmentBookTicket_to_navigation_home);
                 }
                 else{
                     Toast.makeText(getContext(), "Harap isi semua field", Toast.LENGTH_SHORT).show();
@@ -137,21 +164,52 @@ public class BookTicketFragment extends Fragment {
             }
         });
 
-
+        Button btnCancel = view.findViewById(R.id.btnCancel);
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_fragmentBookTicket_to_navigation_home);
+            }
+        });
     }
 
     private boolean isEditTextNotEmpty(EditText editText) {
         return editText.getText().toString().trim().length() > 0;
     }
 
-    private void saveMyTicketData(String name, String numOfPerson, String date){
+    private void saveMyTicketData(String name, String numOfPerson, String date, String totalPrice){
         SharedPreferences sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("myticket_name", name);
         editor.putString("myticket_numOfPerson", numOfPerson);
-        editor.putString("myticketuser_date", date);
+        editor.putString("myticket_date", date);
+        editor.putString("myticket_totalprice", totalPrice);
         editor.putBoolean("is_buyTicket", true);
         editor.apply();
+    }
+
+    private String getDestinationPrice(){
+        SharedPreferences sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
+        return sharedPreferences.getString("destination_price", "");
+    }
+
+    private String getDestinationName(){
+        SharedPreferences sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
+        return sharedPreferences.getString("destination_name", "");
+    }
+
+    private void updateTotalPrice(TextView tvDestinationPrice, EditText etNumOfPerson, TextView tvTotalPrice){
+        String price = tvDestinationPrice.getText().toString();
+        String numOfPerson = etNumOfPerson.getText().toString();
+
+        // Menangani kasus di mana etNumOfPerson kosong
+        if (numOfPerson.isEmpty()) {
+            numOfPerson = "1";
+        }
+
+        int totalPrice = Integer.parseInt(numOfPerson) * Integer.parseInt(price);
+        String totalPriceToString = String.valueOf(totalPrice);
+        tvTotalPrice.setText(totalPriceToString);
     }
 
 }

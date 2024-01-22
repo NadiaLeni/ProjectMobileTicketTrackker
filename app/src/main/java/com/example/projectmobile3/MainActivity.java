@@ -17,6 +17,8 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.projectmobile3.databinding.ActivityMainBinding;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
@@ -38,15 +40,10 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
 
-//        BottomNavigationMenuView menuView = (BottomNavigationMenuView) navView.getChildAt(0);
-//        for (int i = 0; i < menuView.getChildCount(); i++) {
-//            BottomNavigationItemView item = (BottomNavigationItemView) menuView.getChildAt(i);
-//            View icon = item.findViewById(com.google.android.material.R.id.icon);
-//            if (icon instanceof ImageView) {
-//                ImageView imageView = (ImageView) icon;
-//                imageView.setColorFilter(ContextCompat.getColor(this, R.color.light_pink), android.graphics.PorterDuff.Mode.SRC_IN);
-//            }
-//        }
+
+
     }
+
+
 
 }

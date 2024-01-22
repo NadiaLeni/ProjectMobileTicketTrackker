@@ -9,7 +9,13 @@
         android:id="@+id/navigation_home"
         android:name="com.example.projectmobile3.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+
+        <action
+            android:id="@+id/action_fragmentHome_to_fragmentBookTicket"
+            app:destination="@id/fragmentBookTicket" />
+
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_myticket"
@@ -64,8 +70,8 @@
         tools:layout="@layout/fragment_book_ticket" >
 
         <action
-            android:id="@+id/action_fragmentBookTicket_to_navigation_myticket"
-            app:destination="@id/navigation_myticket" />
+            android:id="@+id/action_fragmentBookTicket_to_navigation_home"
+            app:destination="@id/navigation_home" />
 
     </fragment>
 
